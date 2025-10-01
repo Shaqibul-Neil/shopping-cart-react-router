@@ -6,14 +6,23 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import RootLayout from './Layouts/RootLayout';
+import Organization from './pages/Organization';
+import Employees from './pages/Employees';
 
 const router = createBrowserRouter([
   {
     path: '/',
     Component: RootLayout,
     children: [
-      { path: '/', Component: Home },
-      { path: '/about', Component: About },
+      { index: true, Component: Home },
+      {
+        path: '/about',
+        Component: About,
+        children: [
+          { path: 'organization', Component: Organization },
+          { path: 'employees', Component: Employees },
+        ],
+      },
       { path: '/contact', Component: Contact },
     ],
   },

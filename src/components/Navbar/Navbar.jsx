@@ -2,7 +2,7 @@ import { NavLink } from 'react-router';
 
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <nav className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -33,8 +33,21 @@ const Navbar = () => {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+
           <li>
-            <NavLink to="/about">About</NavLink>
+            <details>
+              <summary>
+                <NavLink to="/about">About</NavLink>
+              </summary>
+              <ul className="p-2">
+                <li>
+                  <NavLink to="/about/organization"> Organization</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/about/employees">Employees</NavLink>
+                </li>
+              </ul>
+            </details>
           </li>
           <li>
             <NavLink to="/contact">Contact</NavLink>
@@ -44,7 +57,7 @@ const Navbar = () => {
       <div className="navbar-end">
         <NavLink className="btn">Button</NavLink>
       </div>
-    </div>
+    </nav>
   );
 };
 
