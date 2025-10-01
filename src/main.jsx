@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import RootLayout from './Layouts/RootLayout';
 import Organization from './pages/Organization';
 import Employees from './pages/Employees';
+import PlantDetails from './pages/PlantDetails';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: '/contact', Component: Contact },
+      { path: '/plant-details/:id', Component: PlantDetails },
     ],
   },
 ]);
