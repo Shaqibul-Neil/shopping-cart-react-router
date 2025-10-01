@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 const Plant = ({ plant }) => {
   const { id, image, name, category, price } = plant;
   return (
-    <div className="card bg-base-100 shadow-2xl ">
+    <div className="card bg-base-100 shadow-2xl my-16">
       <figure className="h-48">
         <img src={image} alt={name} className="h-full w-full object-cover" />
       </figure>
@@ -13,7 +13,7 @@ const Plant = ({ plant }) => {
           <div className="badge badge-success">{category}</div>
         </div>
 
-        <h2 className="text-2xl">Price: {price}Tk</h2>
+        <h2 className="text-2xl">Price : {price}Tk</h2>
         <div className="card-actions justify-end">
           <NavLink to={`/plant-details/${id}`} className="btn btn-primary">
             View Details
