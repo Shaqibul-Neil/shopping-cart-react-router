@@ -14,7 +14,16 @@ const router = createBrowserRouter([
     path: '/',
     Component: RootLayout,
     children: [
-      { index: true, Component: Home },
+      {
+        index: true,
+        loader: async () => {
+          const res = await fetch(
+            'https://openapi.programming-hero.com/api/plants'
+          );
+          return res.json();
+        },
+        Component: Home,
+      },
       {
         path: '/about',
         Component: About,
