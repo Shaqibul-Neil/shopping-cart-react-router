@@ -1,6 +1,9 @@
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 
 const Plant = ({ plant }) => {
+  //button die data pathano
+  const navigate = useNavigate();
+  console.log(navigate);
   const { id, image, name, category, price } = plant;
   return (
     <div className="card bg-base-100 shadow-2xl">
@@ -15,10 +18,19 @@ const Plant = ({ plant }) => {
 
         <h2 className="text-2xl">Price : {price}Tk</h2>
         <div className="card-actions justify-end">
-          <NavLink to={`/plant-details/${id}`} className="btn btn-primary">
+          <NavLink
+            state={plant}
+            to={`/plant-details/${id}`}
+            className="btn btn-primary"
+          >
             View Details
           </NavLink>
-
+          <button
+            className="btn btn-warning"
+            onClick={() => navigate(`/plant-details/${id}`, { state: plant })}
+          >
+            View Details with Button
+          </button>
           <button className="btn btn-primary">Add To Cart</button>
         </div>
       </div>
