@@ -10,11 +10,13 @@ import Organization from './pages/Organization';
 import Employees from './pages/Employees';
 import PlantDetails from './pages/PlantDetails';
 import axios from 'axios';
+import LoadingSpinner from './components/LoadingSpinner/LoadingSpinner';
 
 const router = createBrowserRouter([
   {
     path: '/',
     Component: RootLayout,
+    hydrateFallbackElement: <LoadingSpinner />,
     children: [
       {
         index: true,

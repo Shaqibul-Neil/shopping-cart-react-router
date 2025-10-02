@@ -5,7 +5,7 @@ const Home = () => {
   const { plants } = useLoaderData();
 
   return (
-    <div className="grid grid-cols-3 w-11/12 mx-auto px-8 my-12 gap-6">
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-11/12 mx-auto md:px-8 gap-6 mt-24">
       {plants.map(plant => (
         <Plant plant={plant} key={plant.id} />
       ))}

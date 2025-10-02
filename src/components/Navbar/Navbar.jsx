@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router';
+import ThemeToggle from '../ThemeToggle/ThemeToggle';
 
 const Navbar = () => {
   return (
@@ -24,7 +25,29 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
-          ></ul>
+          >
+            <li>
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li>
+              <details>
+                <summary>
+                  <NavLink to="/about">About</NavLink>
+                </summary>
+                <ul className="p-2">
+                  <li>
+                    <NavLink to="/about/organization"> Organization</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/about/employees">Employees</NavLink>
+                  </li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <NavLink to="/contact">Contact</NavLink>
+            </li>
+          </ul>
         </div>
         <NavLink className="btn btn-ghost text-xl">daisyUI</NavLink>
       </div>
@@ -33,7 +56,6 @@ const Navbar = () => {
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
-
           <li>
             <details>
               <summary>
@@ -55,7 +77,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <NavLink className="btn">Button</NavLink>
+        <ThemeToggle />
       </div>
     </nav>
   );
