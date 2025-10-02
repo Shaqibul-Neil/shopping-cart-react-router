@@ -78,7 +78,12 @@ const Navbar = () => {
             </details>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink
+              to="/contact"
+              className={({ isActive }) => (isActive ? 'bg-amber-800' : '')}
+            >
+              Contact
+            </NavLink>
           </li>
         </ul>
       </div>
