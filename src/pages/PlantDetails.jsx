@@ -1,24 +1,27 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+// import axios from 'axios';
+// import { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router';
 
 const PlantDetails = () => {
   //  const params = useParams();
-  const { id } = useParams();
-  //   console.log(params);
-  const [plant, setPlant] = useState({});
+  // const { id } = useParams();
+  // //   console.log(params);
+  // const [plant, setPlant] = useState({});
 
-  useEffect(() => {
-    // fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
-    //   .then(res => res.json())
-    //   .then(data => setPlant(data?.plants));
-    //fetch data using axios
-    axios(`https://openapi.programming-hero.com/api/plant/${id}`).then(data =>
-      setPlant(data.data.plants)
-    );
-  }, [id]);
+  // useEffect(() => {
+  //   // fetch(`https://openapi.programming-hero.com/api/plant/${id}`)
+  //   //   .then(res => res.json())
+  //   //   .then(data => setPlant(data?.plants));
+  //   //fetch data using axios
+  //   axios(`https://openapi.programming-hero.com/api/plant/${id}`).then(data =>
+  //     setPlant(data.data.plants)
+  //   );
+  // }, [id]);
 
-  const { image, name, category, description, price } = plant;
+  const { data } = useLoaderData();
+  // console.log(data.plants);
+
+  const { image, name, category, description, price } = data.plants;
 
   return (
     <div className="card bg-base-100 w-6/12 mx-auto my-24">
