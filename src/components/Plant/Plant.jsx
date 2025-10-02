@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router';
+import CartContext from './CartContext/CartContext';
 
 const Plant = ({ plant }) => {
+  const { setCart } = useContext(CartContext);
+
   //button die data pathano
   const navigate = useNavigate();
   // console.log(navigate);
@@ -31,7 +35,12 @@ const Plant = ({ plant }) => {
           >
             View Details with Button
           </button>
-          <button className="btn btn-primary">Add To Cart</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => setCart(prev => [...prev, plant])}
+          >
+            Add To Cart
+          </button>
         </div>
       </div>
     </div>

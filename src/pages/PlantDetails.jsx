@@ -6,8 +6,8 @@ import { useLocation } from 'react-router';
 import CartContext from '../components/Plant/CartContext/CartContext';
 
 const PlantDetails = () => {
-  const contextValue = useContext(CartContext);
-  console.log(contextValue);
+  const { setCart } = useContext(CartContext);
+  // console.log(cart, setCart);
   //  const params = useParams();
   // const { id } = useParams();
   // //   console.log(params);
@@ -45,7 +45,12 @@ const PlantDetails = () => {
         <h2 className="text-lg">Category : {category}</h2>
         <h2 className="text-2xl">Price : {price}Tk</h2>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary text-xl w-48 ">Add to Cart</button>
+          <button
+            className="btn btn-primary text-xl w-48"
+            onClick={() => setCart(prev => [...prev, location?.state])}
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

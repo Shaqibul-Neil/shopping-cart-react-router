@@ -5,8 +5,8 @@ import { use } from 'react';
 import CartContext from '../Plant/CartContext/CartContext';
 
 const Navbar = () => {
-  const contextValue = use(CartContext);
-  console.log(contextValue);
+  const { cart, setCart } = use(CartContext);
+  console.log(cart, setCart);
   return (
     <nav className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -87,7 +87,7 @@ const Navbar = () => {
             <ShoppingCart size={25} />
           </NavLink>
 
-          <p className="absolute -top-5 -right-2">0</p>
+          <p className="absolute -top-5 -right-2">{cart.length}</p>
         </div>
         <ThemeToggle />
       </div>
