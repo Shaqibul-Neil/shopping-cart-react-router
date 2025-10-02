@@ -8,11 +8,16 @@ import CartContext from '../components/Plant/CartContext/CartContext';
 const RootLayout = () => {
   const [cart, setCart] = useState([]);
 
+  const handleCartItemDelete = item => {
+    const remainingItems = cart.filter(c => c.cartId !== item.cartId);
+    setCart(remainingItems);
+  };
+
   //use navigation hook eta bole je je route e jawar try krtesi oi route e data load hsse kina
   const navigation = useNavigation();
   // console.log(navigation.state);
   return (
-    <CartContext.Provider value={{ cart, setCart }}>
+    <CartContext.Provider value={{ cart, setCart, handleCartItemDelete }}>
       <header className="w-11/12 mx-auto px-2">
         <Navbar />
       </header>

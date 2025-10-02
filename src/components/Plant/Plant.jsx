@@ -5,7 +5,7 @@ import CartContext from './CartContext/CartContext';
 const Plant = ({ plant }) => {
   const { setCart } = useContext(CartContext);
 
-  //button die data pathano
+  //button die data send
   const navigate = useNavigate();
   // console.log(navigate);
   const { id, image, name, category, price } = plant;
@@ -37,7 +37,12 @@ const Plant = ({ plant }) => {
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => setCart(prev => [...prev, plant])}
+            onClick={() =>
+              setCart(prev => [
+                ...prev,
+                { ...plant, cartId: crypto.randomUUID() },
+              ])
+            }
           >
             Add To Cart
           </button>

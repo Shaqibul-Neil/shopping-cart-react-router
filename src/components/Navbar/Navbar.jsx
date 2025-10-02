@@ -5,8 +5,9 @@ import { use } from 'react';
 import CartContext from '../Plant/CartContext/CartContext';
 
 const Navbar = () => {
-  const { cart, setCart } = use(CartContext);
-  console.log(cart, setCart);
+  const { cart } = use(CartContext);
+  // console.log(cart);
+
   return (
     <nav className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
