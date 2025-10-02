@@ -1,8 +1,13 @@
 // import axios from 'axios';
 // import { useEffect, useState } from 'react';
+
+import { useContext } from 'react';
 import { useLocation } from 'react-router';
+import CartContext from '../components/Plant/CartContext/CartContext';
 
 const PlantDetails = () => {
+  const contextValue = useContext(CartContext);
+  console.log(contextValue);
   //  const params = useParams();
   // const { id } = useParams();
   // //   console.log(params);

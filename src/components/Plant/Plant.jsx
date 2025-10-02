@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router';
 const Plant = ({ plant }) => {
   //button die data pathano
   const navigate = useNavigate();
-  console.log(navigate);
+  // console.log(navigate);
   const { id, image, name, category, price } = plant;
   return (
     <div className="card bg-base-100 shadow-2xl">

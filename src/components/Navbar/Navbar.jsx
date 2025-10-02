@@ -1,7 +1,12 @@
 import { NavLink } from 'react-router';
 import ThemeToggle from '../ThemeToggle/ThemeToggle';
+import { ShoppingCart } from 'lucide-react';
+import { use } from 'react';
+import CartContext from '../Plant/CartContext/CartContext';
 
 const Navbar = () => {
+  const contextValue = use(CartContext);
+  console.log(contextValue);
   return (
     <nav className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -76,7 +81,14 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex gap-12 items-center">
+        <div className="relative">
+          <NavLink to="/cart">
+            <ShoppingCart size={25} />
+          </NavLink>
+
+          <p className="absolute -top-5 -right-2">0</p>
+        </div>
         <ThemeToggle />
       </div>
     </nav>
